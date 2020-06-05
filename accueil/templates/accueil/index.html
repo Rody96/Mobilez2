@@ -8,8 +8,6 @@
     {# ---------------------------------LISTE DES PARCOURS---------------------------------------#}
     <div class="list-group">
         {% for accueil in accueil %}
-    {# Do something... #}
-
             <a href="#exampleModal1" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal">
                 <div class="d-flex w-100 justify-content-between">
                     <h3 class="mb-1">{{ accueil.title }}</h3>
@@ -37,13 +35,11 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="button" class="btn btn-success" onclick="window.location.href = '{% url 'accueil_detail' accueil.pk %}';">Démarrer</button>
+                            <button type="button" class="btn btn-success" onclick="window.location.href = {% url 'accueil_detail' accueil.pk %}">Démarrer</button>
                         </div>
                     </div>
                 </div>
             </div>
-        {#    Fin Modal 1 #}
-
         {% endfor %}
     </div>
 
