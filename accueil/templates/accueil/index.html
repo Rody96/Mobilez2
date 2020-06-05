@@ -8,7 +8,7 @@
     {# ---------------------------------LISTE DES PARCOURS---------------------------------------#}
     <div class="list-group">
         {% for accueil in accueil %}
-            <a href="#exampleModal1" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal">
+            <a href="#exampleModal{{ accueil.pk }}" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal">
                 <div class="d-flex w-100 justify-content-between">
                     <h3 class="mb-1">{{ accueil.title }}</h3>
                     {# <small>3 days ago</small>#}
@@ -21,7 +21,7 @@
 
             </a>
             {#    Modal 1 #}
-            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal{{ accueil.pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="button" class="btn btn-success" onclick="window.location.href = {% url 'accueil_detail' accueil.pk %}">Démarrer</button>
+                            <button type="button" class="btn btn-success" onclick="window.location.href = '{% url 'accueil_detail' accueil.pk %}';">Démarrer</button>
                         </div>
                     </div>
                 </div>
