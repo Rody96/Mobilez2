@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+
 from accueil.models import Accueil
 
 
@@ -18,3 +19,4 @@ def accueil_detail(request, pk):
         'accueil': accueil
     }
     return render(request, 'accueil/index_detail.html', context)
+
