@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'accueil',
-    'map',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
