@@ -18,3 +18,4 @@ def accueil_detail(request, pk):
         'accueil': accueil
     }
     return render(request, 'accueil/index_detail.html', context)
+

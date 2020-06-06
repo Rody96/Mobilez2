@@ -1,5 +1,6 @@
 {% extends 'base.html' %}<!-- Se base sur le template de base et insère dedans ce qui suit -->
 {% block content %}
+    {% if user.is_authenticated %}
     {% load static %}
     <section class="accueilTitle">
     <h1>Les parcours</h1></br>
@@ -35,16 +36,17 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="button" class="btn btn-success" onclick="window.location.href = '{% url 'accueil_detail' accueil.pk %}';">Démarrer</button>
+                            <button type="button" class="btn btn-success" onclick="window.location.href = {% url 'accueil_detail' accueil.pk %}">Démarrer</button>
                         </div>
                     </div>
                 </div>
             </div>
+        {#    Fin Modal 1 #}
+
         {% endfor %}
 
     </div>
 
 </br></br></br></br>
-
-
+{% endif %}
 {% endblock %}

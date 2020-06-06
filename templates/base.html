@@ -15,7 +15,7 @@
 
     <nav class="navbar fixed-top navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'accueil' %}"><b>Mobilez </b>
+            <a class="navbar-brand" href="{% url 'account_login' %}"><b>Mobilez</b>
 {#                <img class="img-fluid" alt="Mobilez" src="{% static "/img/MOBILEZ.png" %}" >#}
             </a>
             {% if messages %}
@@ -35,17 +35,17 @@
                 <ul class="navbar-nav mr-auto">
                     {% if user.is_authenticated %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_email' %}">Change E-mail<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'account_email' %}">Changer l'adresse e-mail<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">Se déconnecter</a>
                     </li>
                     {% else %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_login' %}">Sign In<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Se connecter<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">S'inscrire'</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -75,7 +75,7 @@
 
 <footer id="sticky-footer" class="py-2 fixed-bottom bg-dark text-white-50">
     <div class="container text-center">
-    <small>© 2020 Copyright : Mobilez Louvain-la-Neuve</small>
+    <small>© 2020 Copyright : Mobilez Louvain-la-Neuve</br> Contact : mobilez@gmail.com</small>
     </div>
     <!-- Copyright -->
 </footer>
