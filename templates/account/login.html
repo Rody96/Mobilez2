@@ -1,38 +1,41 @@
 {% extends "account/base.html" %}
 {% load i18n %}
 {% load account socialaccount %}
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {#{% block head_title %}#}
 {#    {% trans "HELLO" %}#}
 {#{% endblock %}#}
 
 {% block content %}
-    <h1>{% trans "1ère page (connexion)" %}</h1>
-    <h3>{% trans "Résumé du projet" %}</h3>
-    {% get_providers as socialaccount_providers %}
-    {# boutons sociaux#}
-    {% if socialaccount_providers %}
-        <div class="socialaccount_ballot">
-          <div class="socialaccount_providers">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-          </div>
-          <div class="login-or">{% trans 'or' %}</div></br>
-        </div>
-        {% include "socialaccount/snippets/login_extra.html" %}
-    {% else %}
-        <p>{% blocktrans %}Si vous n'avez pas encore de compte, veuillez vous
-        <a href="{{ signup_url }}">inscrire</a>.{% endblocktrans %}</p>
-    {% endif %}
-
-    <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    <h1>{% trans "1ère page (connexion) + résumé" %}</h1>
+    <section class="lOgin">
+        <h3>{% trans "Connectez-vous" %}</h3>
+        {% get_providers as socialaccount_providers %}
+        {# boutons sociaux#}
+        {% if socialaccount_providers %}
+            <div class="socialaccount_ballot">
+              <div class="socialaccount_providers">
+{#                  <a class="fab fa-facebook-f fa-2x" href="{% provider_login_url "facebook" method="js_sdk" %}"></a>#}
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+              </div>
+              <div class="login-or">{% trans ' ' %}</div></br>
+            </div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+        {% else %}
+            <p>{% blocktrans %}Si vous n'avez pas encore de compte, veuillez vous
+            <a href="{{ signup_url }}">inscrire</a>.{% endblocktrans %}</p>
         {% endif %}
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <button class="primaryAction" type="submit">{% trans "Connexion" %}</button></br>
-        <div class="login-or">{% trans 'ou' %}</div></br>
-        <a href="{% url 'account_signup' %}">S'inscrire</a>
-    </form>
+
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password ?" %}</a>
+            <button class="primaryAction" type="submit">{% trans "Connexion" %}</button></br>
+            <div class="login-or">{% trans 'ou' %}</div>
+            <a href="{% url 'account_signup' %}">S'inscrire</a>
+        </form>
+    </section>
 {% endblock %}
