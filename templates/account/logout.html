@@ -7,17 +7,16 @@
 {% block content %}
 
     <section class="signOut">
-<h1>{% trans "Déconnexion" %}</h1>
+        <h1>{% trans "Déconnexion" %}</h1>
 
-<p>{% trans 'Êtes-vous sûr de vouloir vous déconnecter ?' %}</p>
+        <p>{% trans 'Êtes-vous sûr de vouloir vous déconnecter ?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-    <button type="submit" class="btn btn-danger">{% trans 'Déconnexion' %}</button>
-</form>
-
-</section>
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+            <button type="submit" class="btn btn-danger">{% trans 'Déconnexion' %}</button>
+        </form>
+    </section>
 {% endblock %}
