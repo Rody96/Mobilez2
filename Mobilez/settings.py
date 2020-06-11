@@ -149,11 +149,10 @@ WSGI_APPLICATION = 'Mobilez.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'mobilez-DB',
-        'HOST': 'mongodb+srv://fshatskiy:Temporary72%21@mobilezcluster1-piwai.mongodb.net/test?retryWrites=true&w'
-                '=majority',
-        'USER': 'fshatskiy',
-        'PASSWORD': 'Temporary72!',
+        'NAME': os.environ.get('DB_NAME'),
+        'HOST': os.environ.get('DB_HOST'),
+        'USER': os.environ.get('DB_HOST_USER'),
+        'PASSWORD': os.environ.get('DB_HOST_PASSWORD'),
     }
 }
 
