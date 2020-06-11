@@ -10,8 +10,9 @@
 
 .sign {
     background-color:rgba(0, 0, 0, 0.5);
-    padding: 3em;
+    padding: 2em;
     border-radius: 50px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 40%;
 }
